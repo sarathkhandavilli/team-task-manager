@@ -1,0 +1,1 @@
+A full stack web app where teams can register/login, creates projects, adds tasks todo, in progress, done status , assign tasks to team members
