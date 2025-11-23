@@ -1,12 +1,14 @@
+import { Route } from 'react-router-dom';
 import './App.css'
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
 
   return (
     <>
-      <div className='bg-red-100 justify-center items-center p-2' >
-        Hello World
-      </div>
+      <Route path="/dashboard" element={<Dashboard />} />
+
     </>
   )
 }
