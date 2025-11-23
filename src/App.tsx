@@ -1,16 +1,29 @@
-import { Route } from 'react-router-dom';
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+import "./App.css";
 
-
-function App() {
-
+export default function App() {
   return (
-    <>
-      <Route path="/dashboard" element={<Dashboard />} />
+    <BrowserRouter>
+      <Routes>
+        {/* Auth Page */}
+        <Route path="/auth" element={<Auth />} />
 
-    </>
-  )
+        {/* Protected Dashboard Route */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Default redirect */}
+        <Route path="*" element={<Auth />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
